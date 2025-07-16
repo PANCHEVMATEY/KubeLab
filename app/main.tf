@@ -14,9 +14,12 @@ module "vpc" {
 }
 
 module "k8" {
-  source             = "./modules/k8"
-  env                = var.env
-  cluster_name       = var.cluster_name
-  vpc_id             = module.vpc.vpc_id
-  private_subnet_ids = module.vpc.private_subnet_ids
-}
+  source               = "./modules/k8"
+  env                  = var.env
+  cluster_name         = var.cluster_name
+  vpc_id               = module.vpc.vpc_id
+  public_1a_subnet_id  = module.vpc.public_1a_subnet_id
+  public_1b_subnet_id  = module.vpc.public_1b_subnet_id
+  private_1a_subnet_id = module.vpc.private_1a_subnet_id
+  private_1b_subnet_id = module.vpc.private_1b_subnet_id
+  }
