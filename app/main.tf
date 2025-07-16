@@ -3,11 +3,14 @@ provider "aws" {
 }
 
 module "vpc" {
-  source     = "./modules/vpc"
-  env        = var.env
-  vpc_name   = var.vpc_name
-  cidr_block = var.vpc_cidr
-  aws_region = var.aws_region
+  source              = "./modules/vpc"
+  env                 = var.env
+  vpc_name            = var.vpc_name
+  cidr_block          = var.vpc_cidr
+  aws_region          = var.aws_region
+  availability_zone_a = var.availability_zone_a
+  availability_zone_b = var.availability_zone_b
+  availability_zone_c = var.availability_zone_c
 }
 
 module "k8" {

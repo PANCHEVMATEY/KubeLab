@@ -22,3 +22,6 @@ variable "cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
 }
+variable "availability_zone_a" {}
+variable "availability_zone_b" {}
+variable "availability_zone_c" {}
