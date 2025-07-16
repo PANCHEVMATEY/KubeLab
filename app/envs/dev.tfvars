@@ -1,0 +1,5 @@
+env          = "dev"
+aws_region   = "eu-central-1"
+vpc_name     = "kl-vpc-dev"
+vpc_cidr     = "10.10.0.0/16"
+cluster_name = "kl-eks-dev"
