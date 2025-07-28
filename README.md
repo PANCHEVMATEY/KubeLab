@@ -20,7 +20,7 @@ This repository contains a simple Flask application that reads "lucky messages" 
 ## Project Structure
 
 - `Dockerfile` — Builds the Flask app image
-- `app.py` or `main.py` — Flask application source code
+- `main.py` — Flask application source code
 - `psql-pvc.yml` — PersistentVolumeClaim for Postgres data persistence
 - `psql-deployment.yml` — Postgres deployment manifest
 - `psql-service.yml` — Postgres service manifest

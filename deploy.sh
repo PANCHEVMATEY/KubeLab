@@ -9,6 +9,7 @@ fi
 
 ENV=$1
 AWS_REGION="eu-central-1"
+NAMESPACE="demo-app"
 CLUSTER_NAME="eks-cluster-$ENV"
 
 echo "Updating kubeconfig for EKS cluster..."
@@ -18,12 +19,13 @@ echo "Applying Kubernetes manifests..."
 
 cd app/k8-manifest
 
-kubectl apply -f psql-pvc.yaml
-kubectl apply -f psql-deployment.yaml
-kubectl apply -f psql-service.yaml
+kubectl apply -n "$NAMESPACE" -f psql-pvc.yaml
+kubectl apply -n "$NAMESPACE" -f psql-deployment.yaml
+kubectl apply -n "$NAMESPACE" -f psql-service.yaml
 
-kubectl apply -f app-deployment.yaml
-kubectl apply -f app-service.yaml
+kubectl apply -n "$NAMESPACE" -f app-deployment.yaml
+kubectl apply -n "$NAMESPACE" -f app-service.yaml
+
 
 
 echo "Deployment complete."
