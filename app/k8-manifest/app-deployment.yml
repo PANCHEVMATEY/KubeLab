@@ -16,22 +16,20 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: acc_num.dkr.ecr.eu-central-1.amazonaws.com/my-app-dev
+          image: flask-lucky-app:latest
+          imagePullPolicy: Never
           ports:
-            - containerPort: 8080
+            - containerPort: 5000
           env:
             - name: DATABASE_URL
-              value: "postgres://postgres:postgres@postgres-service:5432/my-app-db"
+              value: "postgres://postgres:postgres@postgres:5432/my-app-db"
             - name: POSTGRES_HOST
-              value: postgres
+              value: "postgres"
             - name: POSTGRES_PORT
               value: "5432"
             - name: POSTGRES_DB
-              value: my-app-db
+              value: "my-app-db"
             - name: POSTGRES_USER
-              value: postgres
+              value: "postgres"
             - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-secret
-                  key: password
+              value: "postgres"
